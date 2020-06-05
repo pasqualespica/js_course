@@ -23,9 +23,26 @@ http://codingheroes.io/resources/
 11. Objects and properties
 12. Objects and methods
 13. Loops and iteration
-14. 
 
-### Section 3
+### Section 3 - How Js works behind the scenes
+
+1. Hoisting  ... 'sollevamento'
+![](img/exec_context.png)
+
+![](img/var_bject.png)
+
+2. Scoping an Scope Chain
+
+![](img/scope.png)
+
+![](img/howtowork_scope_.png)
+
+![](img/excStack_vs_scopeChain.png)
+
+3. `This` keyword
+
+![](img/this.png)
+
 
 ### Section 4
 
