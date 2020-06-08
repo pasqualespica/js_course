@@ -62,9 +62,138 @@ https://developer.mozilla.org/en-US/docs/Web/Events
 
 3. Update score and change active player
 
+### Section 5 - Advanced js Objects and Functions
+
+1. Everything Is an Object Inheritance and the Prototype Chain
+
+https://www.youtube.com/watch?v=VHlBwk_ZQRs&feature=youtu.be
+
+![](img/everything_is_obj.png)
+
+![](img/prototype-chain.png)
+
+![](img/sum_prototype.png)
 
 
-### Section 5
+2. Creating Objects: Function
+
+```js
+Person {name: "John", yearOfBirth: 1990, job: "teacher", dajee: "Dajee"}
+dajee: "Dajee"
+job: "teacher"
+name: "John"
+yearOfBirth: 1990
+__proto__:
+    calculateAge: ƒ ()
+    lastName: "Smith"
+    constructor: ƒ (name, yearOfBirth, job)
+    __proto__:
+        constructor: ƒ Object()
+        hasOwnProperty: ƒ hasOwnProperty()
+        isPrototypeOf: ƒ isPrototypeOf()
+        propertyIsEnumerable: ƒ propertyIsEnumerable()
+        toLocaleString: ƒ toLocaleString()
+        toString: ƒ toString()
+        valueOf: ƒ valueOf()
+        __defineGetter__: ƒ __defineGetter__()
+        __defineSetter__: ƒ __defineSetter__()
+        __lookupGetter__: ƒ __lookupGetter__()
+        __lookupSetter__: ƒ __lookupSetter__()
+        get __proto__: ƒ __proto__()
+        set __proto__: ƒ __proto__()
+```
+
+```js
+john.__proto__ === Person.prototype
+true
+
+john.hasOwnProperty('jdae')
+false
+john.hasOwnProperty('dajee')
+true
+
+john instanceof Person
+true
+
+```
+
+*almost is an object*
+
+```js
+var x = [2,3]
+undefined
+x
+(2) [2, 3]
+console.info(x)
+(2) [2, 3]
+0: 2
+1: 3
+length: 2
+__proto__: Array(0)
+concat: ƒ concat()
+constructor: ƒ Array()
+copyWithin: ƒ copyWithin()
+entries: ƒ entries()
+every: ƒ every()
+fill: ƒ fill()
+filter: ƒ filter()
+find: ƒ find()
+findIndex: ƒ findIndex()
+flat: ƒ flat()
+flatMap: ƒ flatMap()
+forEach: ƒ forEach()
+includes: ƒ includes()
+indexOf: ƒ indexOf()
+join: ƒ join()
+keys: ƒ keys()
+lastIndexOf: ƒ lastIndexOf()
+```
+
+3.  The Prototype Chain in the Console
+
+see `scripts.js`
+
+4.  Creating Objects: Object.create
+
+see `scripts.js`
+
+5.  Primitives vs. Objects
+
+see `scripts.js`
+
+6.  First Class Functions: Passing Functions as Arguments
+
+see `scripts.js`
+
+7.  First Class Functions: Functions Returning Functions
+
+see `scripts.js`
+
+8.  Immediately Invoked Function Expressions (IIFE)
+
+see `scripts.js`
+
+9.  Closures
+
+![](img/closures.png)
+
+![](img/how-closures-work.png)
+![](img/how-closures-work_1.png)
+
+see `scripts.js`
+
+10.  Bind, Call and Apply
+
+- Function.prototype.**apply**(thisArg [, argsArray])
+Calls a function and sets its this to the provided thisArg. Arguments can be passed as an Array object.
+
+- Function.prototype.**bind**(thisArg[, arg1[, arg2[, ...argN]]])
+Creates a new function which, when called, has its this set to the provided thisArg. Optionally, a given sequence of arguments will be prepended to arguments provided the newly-bound function is called.
+
+- Function.prototype.**call**()
+Calls a function and sets its this to the provided value. Arguments can be passed as they are.
+
+see `scripts.js`
 
 ### Section 6
 
