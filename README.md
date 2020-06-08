@@ -44,7 +44,25 @@ http://codingheroes.io/resources/
 ![](img/this.png)
 
 
-### Section 4
+### Section 4 - JS in the Browser : DOM manipultations events
+
+1. Accces and Manipulation 
+https://www.w3schools.com/cssref/css_selectors.asp
+
+https://developer.mozilla.org/it/docs/Web/API/Document/querySelector
+
+https://developer.mozilla.org/it/docs/Web/API/Document/getElementById
+
+![](img/dom.png)
+
+2. Events Handler
+https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
+
+https://developer.mozilla.org/en-US/docs/Web/Events
+
+3. Update score and change active player
+
+
 
 ### Section 5
 
