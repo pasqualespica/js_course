@@ -195,7 +195,29 @@ Calls a function and sets its this to the provided value. Arguments can be passe
 
 see `scripts.js`
 
-### Section 6
+### Section 6 - The Budget App Porject 
+
+see dir `6-budgety`
+
+https://developer.mozilla.org/it/docs/Web/API/KeyboardEvent
+
+http://keycodes.atjayjo.com/#unicode
+
+https://developer.mozilla.org/it/docs/Web/API/Element/insertAdjacentHTML
+
+![](img/app_overview_1.png)
+
+![](img/plannig_2.png)
+
+*Event Bubbling*
+
+![](img/event_delegation.png)
+
+![](img/whee_use_event_delegation.png)
+
+https://blog.garstasio.com/you-dont-need-jquery/dom-manipulation/
+
+![](img/final_pp_structure.png)
 
 ### Section 7
 
