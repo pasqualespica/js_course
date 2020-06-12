@@ -221,6 +221,26 @@ https://blog.garstasio.com/you-dont-need-jquery/dom-manipulation/
 
 ### Section 7
 
+https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Operators/this
+
+https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Global_Objects/Array/from
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
+
+https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Functions_and_function_scope/arguments
+
+**Function.prototype** `apply` `bind` `call`
+https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Global_Objects/Function/apply
+https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Global_Objects/Function/bind
+https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Global_Objects/Function/call
+
+https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Global_Objects/Map
+
+https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Global_Objects/Object/create
+
+
 ### Section 8
 
 ### Section 9
