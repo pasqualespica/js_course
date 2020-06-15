@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Asynchronous JavaScript</title>
+</head>
+<body>
+    <h1>Asynchronous JavaScript</h1>
+    <script>
+
+        //  https://www.metaweather.com/api/
+        
+        // EX-2
+        function getWeather(woeid) {
+            fetch(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${woeid}/`)
+            .then(result => {
+                // console.log(result);
+                
+                // (method) Promise<Response>.then<any, never>(onfulfilled ?: 
+                // (value: Response) => any, onrejected ?: (reason: any) => PromiseLike<never>): 
+                    // Promise < any >
+                
+                // Fetch Return a PROMISE
+                // We can return `Result` and use `then` --- CHAINING
+                return result.json();
+            })
+            .then(data => {
+                // console.log(data);
+                const today = data.consolidated_weather[0];
+                console.log(`Temperatures today in ${data.title} stay between ${today.min_temp} and ${today.max_temp}.`);
+            })
+            .catch(error => console.log(error));
+        }
+        getWeather(2487956);
+        getWeather(44418);
+
+
+    </script>
+</body>
+</html>

@@ -219,7 +219,7 @@ https://blog.garstasio.com/you-dont-need-jquery/dom-manipulation/
 
 ![](img/final_pp_structure.png)
 
-### Section 7
+### Section 7 - Next Generation JavaScript: Intro to ES6 / ES2015
 
 https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Operators/this
 
@@ -241,7 +241,32 @@ https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Global_Objects/Ma
 https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Global_Objects/Object/create
 
 
-### Section 8
+### Section 8 - Asynchronous JavaScript: Promises, Async/Await and AJAX
+
+https://developer.mozilla.org/it/docs/Web/JavaScript/EventLoop
+
+![](img/eventloop_0.png)
+
+![](img/eventloop_1.png)
+
+**Promise** From `CallBack` Hell to `Promise`
+![](img/promise.png)
+
+`async` e `await`
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await
+
+![](img/resolve_reject.png)
+
+![](img/ajax-api.png)
+
+**Fetch**
+https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+
+**Cross-Origin Resource Sharing (CORS)**
+https://developer.mozilla.org/it/docs/Web/HTTP/CORS
+
+https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api
 
 ### Section 9
 
@@ -249,4 +274,4 @@ https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Global_Objects/Ob
 
 ### Section 11
 
-### Section 11
+### Section 12
