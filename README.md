@@ -261,14 +261,159 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/awai
 ![](img/ajax-api.png)
 
 **Fetch**
+
 https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
 
 **Cross-Origin Resource Sharing (CORS)**
+
 https://developer.mozilla.org/it/docs/Web/HTTP/CORS
 
 https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api
 
-### Section 9
+### Section 9 - Modern JS
+
+![](img/modern-js-overview.png)
+
+`npm`
+
+https://docs.npmjs.com/cli/install
+
+```bash
+npm init
+```
+
+after that we have `package.json` file and folder `node_modules`
+
+then we install *devDependencies* ( tool like `webpack`)
+```
+npm install webpack --save-dev
+```
+
+and also real 3pp modules *dependencies* ( like `jquery`)
+```
+npm install jquery --save
+```
+
+if you remove folder `node_modules` you can restore it , typing
+```bash
+npm install
+```
+
+that readd all info by `package.json` file.
+
+To unistall 
+```bash
+npm uninstall jquery --save
+```
+
+to install **GLOBAL** you should type :
+```bash
+npm install live-server --global
+```
+
+then
+```bash
+npm install webpack-cli --save-dev
+```
+
+Then create `webpack.config.js` and under `dist/js` the files (`index.js` and `test.js`):
+
+```bash
+npm run dev
+```
+
+
+```bash
+> forkify@1.0.0 dev /Users/pasqualespica/my_data/PAS7B/my_workspaces/js_course/9-forkify/starter
+> webpack
+
+Hash: 2f9716b781db333d92ff
+Version: webpack 4.43.0
+Time: 76ms
+Built at: 06/15/2020 4:25:43 PM
+    Asset      Size  Chunks             Chunk Names
+bundle.js  4.54 KiB    main  [emitted]  main
+Entrypoint main = bundle.js
+[./src/js/index.js] 88 bytes {main} [built]
+[./src/js/test.js] 51 bytes {main} [built]
+```
+
+we modify `webpack.config.js` and comment
+
+```js
+    // mode: 'development'
+```
+and also `package.json` as follow
+
+```json
+  "scripts": {
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production"
+  },
+```
+
+then
+```bash
+npm install webpack-dev-server --save-dev
+```
+see also modify to `webpack.config.js`
+```js
+        // path: path.resolve(__dirname, "dist/js"),
+        path: path.resolve(__dirname, "dist"),
+```
+
+and then install
+```
+npm install html-webpack-plugin --save-dev
+```
+Remeber `start` does't copy under `dist` folder the output (`index.html`, `js/bundle.js`)
+
+---
+
+Now integrate *Babel*
+https://babeljs.io/
+
+```
+npm install babel-core babel-preset-env babel-loader --save-dev
+```
+
+**CSS with superpowers**
+https://sass-lang.com/
+
+`LOADER` convert SASS_2_CSS ore ESNext_2_older ( ex. *Babel* )
+
+**Espressioni regolari**
+https://developer.mozilla.org/it/docs/Web/JavaScript/Guida/Espressioni_Regolari
+
+We should intall too
+
+```bash
+npm install babel-polyfill --save
+```
+
+to mangae es PROMISE that doesn'n exit into ES5 
+(fa tutto quello che non puo' fare in modo automatico il loader)
+
+va modifico il file `webpack.config.js` per avere piu' entry 
+```js
+    entry: ["babel-polyfill", './src/js/index.js'],
+```
+
+---
+starting ... with APP ... into **ES6 modules**
+
+![](img/mvc-inES6.png)
+
+---
+
+alternative to `fetch` is `axios`, install it
+
+```bash
+npm install axios --save
+```
+
+it work like `fetch`    https://www.npmjs.com/package/axios
+
 
 ### Section 10
 
