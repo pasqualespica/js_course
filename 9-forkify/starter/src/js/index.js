@@ -5,6 +5,7 @@
 // **************************
 
 import Search from "./modules/Search";
+import Recipe from "./modules/Recipe";
 import * as searchView from "./views/searchView";
 import { elements, renderLoader, clearLoader } from "./views/base";
 
@@ -18,6 +19,9 @@ import { elements, renderLoader, clearLoader } from "./views/base";
  */
 const state = {}; // EMPTY at start!!!!
 
+/**
+ * SEARCH CONTROLLER
+ */
 const controlSearch = async () => {
 
     // 1) Get query from view
@@ -34,13 +38,19 @@ const controlSearch = async () => {
         renderLoader(elements.searchRes);
 
         // 4) Search for recipies
-        await state.search.geResults(); // return a PROMISE
+        try {
+            await state.search.geResults(); // return a PROMISE
 
-        // 5) render results on UI
-        clearLoader();
-        console.log(`render results on UI for [${query}]`);
-        console.log(state.search.result);
-        searchView.renderResults(state.search.result);
+            // 5) render results on UI
+            clearLoader();
+            console.log(`render results on UI for [${query}]`);
+            console.log(state.search.result);
+            searchView.renderResults(state.search.result);            
+        } catch (error) {
+            alert("Something wrong !!!!!! :( ");
+            clearLoader();
+        }
+
         
 
     }
@@ -66,6 +76,60 @@ elements.searchResPages.addEventListener("click", e => {
         // console.log(goToPage);
     }
 })
+
+
+/**
+ * RECIPE CONTROLLER
+ */
+
+// const r = new Recipe(47746);
+// r.getRecipe();
+// console.log(r);
+
+const controlRecipe = async () => {
+    // Get ID from the URL
+    const id = window.location.hash.replace('#', '');
+    // console.log(id);
+
+    if (id) {
+        // Prepare the UI for changes
+
+        // Create new receipe object
+        state.recipe = new Recipe(id);
+
+        try {
+            // Get Recipe data
+            await state.recipe.getRecipe();
+
+            // Calculate serving and time
+            state.recipe.calcServing();
+            state.recipe.calcTime();
+
+            // Rendere recipe
+            console.log(state.recipe);
+
+        } catch (error) {
+            alert("Error processing recipe !!! : ( ");
+        }
+
+    }
+};
+
+// https://developer.mozilla.org/en-US/docs/Web/API/Window/hashchange_event
+// window.addEventListener("hashchange", controlRecipe);
+
+// https://developer.mozilla.org/it/docs/Web/Events/load
+// window.addEventListener("load", controlRecipe);
+
+// One row !!!! Woooww
+["hashchange", "load"].forEach(evento => window.addEventListener(evento, controlRecipe));
+
+
+
+
+
+
+
 // const search = new Search("pizza");
 
 // console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");

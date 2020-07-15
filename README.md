@@ -506,7 +506,9 @@ https://developer.mozilla.org/en-US/docs/Web/API/HTMLOrForeignElement/dataset
 
 https://developer.mozilla.org/it/docs/Web/API/Element/closest
 
+https://developer.mozilla.org/en-US/docs/Web/API/Window/hashchange_event
 
+https://developer.mozilla.org/it/docs/Web/Events/load
 
 ### Section 10
 
