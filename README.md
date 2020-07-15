@@ -510,6 +510,8 @@ https://developer.mozilla.org/en-US/docs/Web/API/Window/hashchange_event
 
 https://developer.mozilla.org/it/docs/Web/Events/load
 
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Cheatsheet
+
 ### Section 10
 
 ### Section 11
