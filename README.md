@@ -519,6 +519,9 @@ https://github.com/ekg/fraction.js
 npm install fractional --save
 ```
 
+*Event Delegation*
+https://developer.mozilla.org/en-US/docs/Web/API/Element/matches
+
 ### Section 10
 
 ### Section 11
