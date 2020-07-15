@@ -512,6 +512,13 @@ https://developer.mozilla.org/it/docs/Web/Events/load
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Cheatsheet
 
+
+https://github.com/ekg/fraction.js
+
+```sh
+npm install fractional --save
+```
+
 ### Section 10
 
 ### Section 11

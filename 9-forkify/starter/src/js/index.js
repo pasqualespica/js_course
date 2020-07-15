@@ -7,6 +7,7 @@
 import Search from "./modules/Search";
 import Recipe from "./modules/Recipe";
 import * as searchView from "./views/searchView";
+import * as recipeView from "./views/recipeView";
 import { elements, renderLoader, clearLoader } from "./views/base";
 
 // state management library Redux - A Predictable State Container for JS Apps
@@ -93,6 +94,11 @@ const controlRecipe = async () => {
 
     if (id) {
         // Prepare the UI for changes
+        recipeView.clearRecipe();
+        renderLoader(elements.recipe);
+
+        // Highlight selected search item
+        if (state.search) searchView.highlightSelected(id);
 
         // Create new receipe object
         state.recipe = new Recipe(id);
@@ -108,10 +114,13 @@ const controlRecipe = async () => {
             state.recipe.calcTime();
 
             // Rendere recipe
+            clearLoader();
             console.log(state.recipe);
 
+            recipeView.renderRecipe(state.recipe);
+
         } catch (error) {
-            alert("Error processing recipe !!! : ( ");
+            alert("Error processing recipe !!! : ( dajeee ");
         }
 
     }
