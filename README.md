@@ -274,22 +274,41 @@ https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api
 
 ![](img/modern-js-overview.png)
 
-`npm`
+`npm` and `node.js`
 
 https://docs.npmjs.com/cli/install
 
 ```bash
 npm init
 ```
+after this command you will show this
 
-after that we have `package.json` file and folder `node_modules`
+```
+This utility will walk you through creating a package.json file.
+It only covers the most common items, and tries to guess sensible defaults.
+
+See `npm help json` for definitive documentation on these fields
+and exactly what they do.
+
+Use `npm install <pkg>` afterwards to install a package and
+save it as a dependency in the package.json file.
+
+Press ^C at any time to quit.
+package name: (forkify)
+```
+
+after that we have `package.json` file
 
 then we install *devDependencies* ( tool like `webpack`)
 ```
 npm install webpack --save-dev
 ```
 
-and also real 3pp modules *dependencies* ( like `jquery`)
+Remember we have 2 type dependecies :
+1. libraries  *( we use this code in ours code )*
+2. dev-tools
+   
+and also real 3pp modules *dependencies* ( like `jquery`) into folder `node_modules`
 ```
 npm install jquery --save
 ```
@@ -298,10 +317,9 @@ if you remove folder `node_modules` you can restore it , typing
 ```bash
 npm install
 ```
+this command read all info by `package.json` file.
 
-that readd all info by `package.json` file.
-
-To unistall 
+Instead of if you want to unistall 
 ```bash
 npm uninstall jquery --save
 ```
@@ -311,17 +329,31 @@ to install **GLOBAL** you should type :
 npm install live-server --global
 ```
 
+try it runnnig command from a shell :
+```
+(base) Pasquales-MacBook-Pro:starter pasqualespica$ live-server
+Serving "/Users/pasqualespica/my_data/PAS7B/my_workspaces/js_course/9-forkify/starter" at http://127.0.0.1:8080
+GET /favicon.ico 404 280.345 ms - 150
+```
+
+### webpack 
+![](img/webpack.png)
+
+Then create `webpack.config.js` and under `dist/js` the files (`index.js` and `test.js`):
+
+1. entry
+2. output
+3. devServer
+4. plugins
+
 then
 ```bash
 npm install webpack-cli --save-dev
 ```
 
-Then create `webpack.config.js` and under `dist/js` the files (`index.js` and `test.js`):
-
 ```bash
 npm run dev
 ```
-
 
 ```bash
 > forkify@1.0.0 dev /Users/pasqualespica/my_data/PAS7B/my_workspaces/js_course/9-forkify/starter
@@ -352,27 +384,36 @@ and also `package.json` as follow
   },
 ```
 
-then
+### `webpack-dev-server` automatically relaod the page
+
+To do that first of all install
 ```bash
 npm install webpack-dev-server --save-dev
 ```
-see also modify to `webpack.config.js`
+
+after add to `webpack.config.js` 
 ```js
-        // path: path.resolve(__dirname, "dist/js"),
-        path: path.resolve(__dirname, "dist"),
+    devServer: {
+        contentBase: './dist'
+    },
+```
+see also modify to `package.json` and add
+```js
+    "start": "webpack-dev-server --mode development --open "
 ```
 
 and then install
 ```
 npm install html-webpack-plugin --save-dev
 ```
-Remeber `start` does't copy under `dist` folder the output (`index.html`, `js/bundle.js`)
+Remember `start` does't copy under `dist` folder the output (`index.html`, `js/bundle.js`)
 
 ---
 
-Now integrate *Babel*
+Now integrate *Babel* to convert **ES6** into **ES5**
 https://babeljs.io/
 
+we need to download a couple of package
 ```
 npm install babel-core babel-preset-env babel-loader --save-dev
 ```
@@ -382,6 +423,38 @@ https://sass-lang.com/
 
 `LOADER` convert SASS_2_CSS ore ESNext_2_older ( ex. *Babel* )
 
+modify `webpack.config.js` adding *module*
+
+```js
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: "babel-loader"
+                }
+            }
+        ]
+    }
+```
+
+and create new file `.babelrc`
+```js
+{
+    "presets": [
+        ["env", {
+            "targets": {
+                "browsers": [
+                    "last 5 versions",
+                    "ie >= 8"
+                ]
+            }
+        }]
+    ]
+}
+```
+
 **Espressioni regolari**
 https://developer.mozilla.org/it/docs/Web/JavaScript/Guida/Espressioni_Regolari
 
@@ -390,8 +463,7 @@ We should intall too
 ```bash
 npm install babel-polyfill --save
 ```
-
-to mangae es PROMISE that doesn'n exit into ES5 
+to mangae ex. **PROMISE** that doesn'n exit into ES5 
 (fa tutto quello che non puo' fare in modo automatico il loader)
 
 va modifico il file `webpack.config.js` per avere piu' entry 
@@ -406,13 +478,34 @@ starting ... with APP ... into **ES6 modules**
 
 ---
 
-alternative to `fetch` is `axios`, install it
+**NOTE-1**
+Here are the 3 things that you need to know about forkify-api which are DIFFERENT from the food2fork API in the videos:
+1. No API key is required;
+2. No proxy is required;
+3. The URL is forkify-api.herokuapp.com (click for basic documentation).
+
+
+
+**NOTE-2**
+alternative to `fetch` is `axios`, install it ( because `fetch` doesn't work in old browser )
 
 ```bash
 npm install axios --save
 ```
 
 it work like `fetch`    https://www.npmjs.com/package/axios
+
+**useful links**
+https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
+
+https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce
+
+https://developer.mozilla.org/it/docs/Web/API/Element/insertAdjacentHTML
+
+https://developer.mozilla.org/en-US/docs/Web/API/HTMLOrForeignElement/dataset
+
+https://developer.mozilla.org/it/docs/Web/API/Element/closest
+
 
 
 ### Section 10

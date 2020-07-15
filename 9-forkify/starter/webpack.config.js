@@ -18,6 +18,7 @@ module.exports = {
             template: "./src/index.html"
         })
     ],
+    // Used by Babel
     module: {
         rules: [
             {
