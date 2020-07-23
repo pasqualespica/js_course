@@ -512,6 +512,7 @@ https://developer.mozilla.org/it/docs/Web/Events/load
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Cheatsheet
 
+https://developer.mozilla.org/it/docs/Web/API/Window/localStorage
 
 https://github.com/ekg/fraction.js
 

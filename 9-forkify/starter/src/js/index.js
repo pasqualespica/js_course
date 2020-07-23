@@ -160,8 +160,11 @@ const controlList = () => {
 /**
  * LIKE CONTROLLER
  */
-state.likes = new Likes();
-likesView.toggleLikeMenu(state.likes.getNumLikes());
+
+//  ONLY FOR TEST !!!!
+
+// state.likes = new Likes();
+// likesView.toggleLikeMenu(state.likes.getNumLikes());
 
 const controlLike = () => {
 
@@ -211,6 +214,25 @@ const controlLike = () => {
 
     likesView.toggleLikeMenu(state.likes.getNumLikes());
 }
+
+// Restore liked reciper on pages LOAD
+
+window.addEventListener("load", () => {
+    state.likes = new Likes();
+
+    // Restore from localStorare
+    state.likes.readStorage();
+
+    console.log(state.likes)
+
+    console.log(state.likes.getNumLikes())
+    likesView.toggleLikeMenu(state.likes.getNumLikes());
+
+    console.log("Daejjjjj");
+    // Erndere the exitest likes 
+    state.likes.likes.forEach(like => likesView.renderLike(like))
+
+});
 
 
 // ..........................................
