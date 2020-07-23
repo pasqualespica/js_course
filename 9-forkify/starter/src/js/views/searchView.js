@@ -85,7 +85,7 @@ const renderRecepie = recipe => {
  * @param {string} type : "prev" or "next"
  */
 const createButton = (page, type) => { 
-    
+    // https://developer.mozilla.org/en-US/docs/Web/API/HTMLOrForeignElement/dataset
     return `
     <button class="btn-inline results__btn--${type}" data-goto="${type === "prev" ? page - 1 : page + 1 }">
         <span>Page ${type === "prev" ? page - 1 : page + 1 }</span>

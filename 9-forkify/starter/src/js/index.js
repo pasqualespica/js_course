@@ -9,6 +9,7 @@ import Recipe from "./modules/Recipe";
 import List from "./modules/List";
 import * as searchView from "./views/searchView";
 import * as recipeView from "./views/recipeView";
+import * as listView from "./views/listView";
 import { elements, renderLoader, clearLoader } from "./views/base";
 
 // state management library Redux - A Predictable State Container for JS Apps
@@ -20,6 +21,7 @@ import { elements, renderLoader, clearLoader } from "./views/base";
  * - Liked recipes
  */
 const state = {}; // EMPTY at start!!!!
+window.statoDAJE = state;
 
 /**
  * SEARCH CONTROLLER
@@ -127,6 +129,58 @@ const controlRecipe = async () => {
     }
 };
 
+
+/**
+ * LIST CONTROLLER
+ */
+
+const controlList = () => {
+
+    // 1. Create a new list if there is none yet
+    if (!state.list) state.list = new List();
+
+    console.log("controlList controller START ...");
+
+    // 2. Add each ingredietnt to the list and UI
+    state.recipe.ingredients.forEach(el => {
+        const item = state.list.addItem(el.count, el.unit, el.ingredient);
+        listView.renderItem(item);
+    });
+
+
+}
+
+// Handle DELETE, UPDATE list item event
+elements.shopping.addEventListener("click", e => {
+
+    // https://developer.mozilla.org/it/docs/Web/API/Element/closest
+    const id  = e.target.closest(".shopping__item").dataset.itemid;
+
+    console.log(`elements.shopping.addEventListener id ${id}`);
+
+    // handle the delete button
+    if (e.target.matches(".shopping__delete, .shopping__delete *")) {
+        // Delete from state
+        state.list.deleteItem(id);
+
+        // Delete from UI
+        listView.deleteItem(id);
+
+        //Hanlde update
+    } else if (e.target.matches(".shopping__count-value") ) {
+        // Read the date and UPDATE
+        const valore = parseFloat(e.target.value);
+        state.list.updateCount(id, valore);
+    }
+
+});
+
+
+// ..........................................
+// EVENT listner ..........
+// ..........................................
+
+
 // https://developer.mozilla.org/en-US/docs/Web/API/Window/hashchange_event
 // window.addEventListener("hashchange", controlRecipe);
 
@@ -151,6 +205,8 @@ elements.recipe.addEventListener("click", e => {
         // Increase button is clicked 
         state.recipe.updateServing("inc");
         recipeView.updateServingIngredients(state.recipe);
+    } else if (e.target.matches(".recipe__btn--add, .recipe__btn *")) { // CSS selector for all childs
+        controlList();
     }
     console.log(state.recipe);
 
@@ -158,7 +214,6 @@ elements.recipe.addEventListener("click", e => {
 
 
 const l = new List();
-
 window.dajee = l;
 
 // const search = new Search("pizza");
