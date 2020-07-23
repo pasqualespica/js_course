@@ -522,6 +522,16 @@ npm install fractional --save
 *Event Delegation*
 https://developer.mozilla.org/en-US/docs/Web/API/Element/matches
 
+*A Unique Hexatridecimal ID generator.*
+https://www.npmjs.com/package/uniqid
+
+```sh
+npm install uniqid --save
+```
+
+https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
+
+
 ### Section 10
 
 ### Section 11

@@ -6,6 +6,7 @@
 
 import Search from "./modules/Search";
 import Recipe from "./modules/Recipe";
+import List from "./modules/List";
 import * as searchView from "./views/searchView";
 import * as recipeView from "./views/recipeView";
 import { elements, renderLoader, clearLoader } from "./views/base";
@@ -155,6 +156,10 @@ elements.recipe.addEventListener("click", e => {
 
 });
 
+
+const l = new List();
+
+window.dajee = l;
 
 // const search = new Search("pizza");
 
