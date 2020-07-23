@@ -11,6 +11,7 @@ import Likes from "./modules/Likes";
 import * as searchView from "./views/searchView";
 import * as recipeView from "./views/recipeView";
 import * as listView from "./views/listView";
+import * as likesView from "./views/likesView";
 import { elements, renderLoader, clearLoader } from "./views/base";
 
 // state management library Redux - A Predictable State Container for JS Apps
@@ -121,14 +122,18 @@ const controlRecipe = async () => {
             clearLoader();
             console.log(state.recipe);
 
-            recipeView.renderRecipe(state.recipe);
+            recipeView.renderRecipe(
+                state.recipe, 
+                state.likes.isLiked(id));
 
         } catch (error) {
+            console.log(error);
             alert("Error processing recipe !!! : ( dajeee ");
         }
 
     }
 };
+
 
 
 /**
@@ -155,6 +160,8 @@ const controlList = () => {
 /**
  * LIKE CONTROLLER
  */
+state.likes = new Likes();
+likesView.toggleLikeMenu(state.likes.getNumLikes());
 
 const controlLike = () => {
 
@@ -176,8 +183,10 @@ const controlLike = () => {
         );
 
         // 2. Toggle the button
+        likesView.toggleLikeBtn(true);
 
         // 3. Add like to UI
+        likesView.renderLike(newLike);
 
         console.log(`ADD LIKE`)
         console.log(state.likes)
@@ -187,16 +196,20 @@ const controlLike = () => {
 
         // 1. Remove the like from the state
         state.likes.deleteLike(currentID);
+
         // 2. Toggle the button
+        likesView.toggleLikeBtn(false);
+
+        console.log(`REMOVE LIKE---1`)
 
         // 3. Remove like to UI
-
+        likesView.deleteLike(currentID);
 
         console.log(`REMOVE LIKE`)
         console.log(state.likes)
     }
 
-
+    likesView.toggleLikeMenu(state.likes.getNumLikes());
 }
 
 
