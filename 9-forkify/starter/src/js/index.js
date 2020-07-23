@@ -7,6 +7,7 @@
 import Search from "./modules/Search";
 import Recipe from "./modules/Recipe";
 import List from "./modules/List";
+import Likes from "./modules/Likes";
 import * as searchView from "./views/searchView";
 import * as recipeView from "./views/recipeView";
 import * as listView from "./views/listView";
@@ -150,11 +151,69 @@ const controlList = () => {
 
 }
 
+
+/**
+ * LIKE CONTROLLER
+ */
+
+const controlLike = () => {
+
+    // 1. Create a new LIKEs list if there is none yet
+    if (!state.likes) state.likes = new Likes();
+
+    console.log("controlLike controller START ...");
+
+    const currentID = state.recipe.id;
+
+    // user has not yet liked currente recipe
+    if (!state.likes.isLiked(currentID)) {
+        // 1. add like to the state
+        const newLike = state.likes.addLike(
+            currentID,
+            state.recipe.title,
+            state.recipe.author,
+            state.recipe.img
+        );
+
+        // 2. Toggle the button
+
+        // 3. Add like to UI
+
+        console.log(`ADD LIKE`)
+        console.log(state.likes)
+
+    // user has liked currente recipe
+    } else {
+
+        // 1. Remove the like from the state
+        state.likes.deleteLike(currentID);
+        // 2. Toggle the button
+
+        // 3. Remove like to UI
+
+
+        console.log(`REMOVE LIKE`)
+        console.log(state.likes)
+    }
+
+
+}
+
+
+// ..........................................
+// ..........................................
+// ..........................................
+// EVENT listner ..........
+// ..........................................
+// ..........................................
+// ..........................................
+
+
 // Handle DELETE, UPDATE list item event
 elements.shopping.addEventListener("click", e => {
 
     // https://developer.mozilla.org/it/docs/Web/API/Element/closest
-    const id  = e.target.closest(".shopping__item").dataset.itemid;
+    const id = e.target.closest(".shopping__item").dataset.itemid;
 
     console.log(`elements.shopping.addEventListener id ${id}`);
 
@@ -167,18 +226,13 @@ elements.shopping.addEventListener("click", e => {
         listView.deleteItem(id);
 
         //Hanlde update
-    } else if (e.target.matches(".shopping__count-value") ) {
+    } else if (e.target.matches(".shopping__count-value")) {
         // Read the date and UPDATE
         const valore = parseFloat(e.target.value);
         state.list.updateCount(id, valore);
     }
 
 });
-
-
-// ..........................................
-// EVENT listner ..........
-// ..........................................
 
 
 // https://developer.mozilla.org/en-US/docs/Web/API/Window/hashchange_event
@@ -205,8 +259,13 @@ elements.recipe.addEventListener("click", e => {
         // Increase button is clicked 
         state.recipe.updateServing("inc");
         recipeView.updateServingIngredients(state.recipe);
-    } else if (e.target.matches(".recipe__btn--add, .recipe__btn *")) { // CSS selector for all childs
+    } else if (e.target.matches(".recipe__btn--add, .recipe__btn *")) { 
+        // CSS selector for all childs
+        // add ingredietsn to shopping list
         controlList();
+    } else if (e.target.matches(".recipe__love, .recipe__love *")) {
+        // Like Controller
+        controlLike();
     }
     console.log(state.recipe);
 
