@@ -533,8 +533,14 @@ npm install uniqid --save
 https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
 
 
-### Section 10
+### Section 10 - Q&A
 
-### Section 11
+### Section 11 - N.A.
 
-### Section 12
+### Section 12 - `Node.js` crash course
+
+Either through cloning with git or by using npm (the recommended way):
+
+```sh
+sudo npm install -g nodemon
+```
